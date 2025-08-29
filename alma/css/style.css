@@ -65,7 +65,7 @@
   body {
 	margin:0;
 	padding:0;
-	background-color:#ffffff;
+	background-color:#0a1f44;
 	color:#1a1a1a;
 	font-family:"Open Sans",system-ui;
 	font-size:1.125rem;     				/* 18px */
@@ -379,4 +379,32 @@ ul li {
 	font-weight:800;
 	src:url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-800.eot');
 	src:url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-800.eot?#iefix') format('embedded-opentype'),url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-800.woff2') format('woff2'),url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-800.woff') format('woff'),url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-800.ttf') format('truetype'),url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-800.svg#OpenSans') format('svg');
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: radial-gradient(circle at center, #0d002a, #1a0a3c, #2b0061, #3c0073, #5a1a8b, #ff6ec4);
+    background-size: 400% 400%;
+    animation: gradientCircle 8s linear infinite;
+    color: #ffffff;
+    font-family: "Open Sans", system-ui;
+}
+
+@keyframes gradientCircle {
+    0% { background-position: 50% 50%; }
+    25% { background-position: 100% 50%; }
+    50% { background-position: 50% 100%; }
+    75% { background-position: 0% 50%; }
+    100% { background-position: 50% 50%; }
+}
+
+/* Dark/auto theme override */
+:root.theme-dark body,
+:root.theme-auto body {
+    background: radial-gradient(circle at center, #0d002a, #1a0a3c, #2b0061, #3c0073, #5a1a8b, #ff6ec4) !important;
+    background-size: 400% 400% !important;
+    animation: gradientCircle 8s linear infinite !important;
+    color: #ffffff !important;
 }
