@@ -10,7 +10,7 @@ export default function Footer() {
           <div>
             <h3 className="text-sm tracking-widest mb-4">777 REAL ESTATE & INVESTMENTS</h3>
             <p className="text-sm text-gray-400 mb-2">Premier Real Estate Agents</p>
-            <p className="text-sm text-gray-400 mb-2">in Greater Los Angeles, San Fernando Valley Areas</p>
+            <p className="text-sm text-gray-400 mb-2">in Greater Los Angeles & San Fernando Valley Areas</p>
             <p className="text-sm text-gray-400">Agent 1 | CA DRE# 12345678</p>
             <p className="text-sm text-gray-400">Agent 2 | CA DRE# 87654321</p>
             <p className="text-sm text-gray-400">Company | DRE# 11223344</p>
