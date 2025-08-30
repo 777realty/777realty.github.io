@@ -30,8 +30,8 @@ export default function HeroSlider() {
           </h1>
           <p className="text-sm italic">Search our exclusive listings.</p>
           <div className="space-y-1 mt-4">
-            <p className="text-sm">Dawn Olson | CA DRE# 00944676</p>
-            <p className="text-sm">Jeff Biebuyck | CA DRE# 01883921</p>
+            <p className="text-sm">Agent 1 | CA DRE# 12345678</p>
+            <p className="text-sm">Agent 2 | CA DRE# 87654321</p>
           </div>
           <Link
             href="/search"
