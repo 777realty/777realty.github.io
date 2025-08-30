@@ -21,7 +21,7 @@ export default function AboutSection() {
                 tech forward offerings.
               </p>
               <p>
-                Dawn, Jeff, and the 777 Real Estate & Investments team consistently advise a wide range of influential buyers and sellers
+                The 777 Real Estate & Investments team consistently advise a wide range of influential buyers and sellers
                 in a manner and style that has earned them recognition on a national level.
               </p>
               <Link

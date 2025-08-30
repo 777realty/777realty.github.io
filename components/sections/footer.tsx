@@ -12,9 +12,9 @@ export default function Footer() {
             <p className="text-sm text-gray-400 mb-2">Premier Real Estate Agents</p>
             <p className="text-sm text-gray-400 mb-2">in Greater Los Angeles, San Fernando Valley Areas</p>
             <p className="text-sm text-gray-400 mb-2">and Conejo Valley Areas</p>
-            <p className="text-sm text-gray-400">Dawn Olmos | CA DRE# 00944676</p>
-            <p className="text-sm text-gray-400">Jeff Biebuyck | CA DRE# 01883921</p>
-            <p className="text-sm text-gray-400">Compass | DRE# 01991628</p>
+            <p className="text-sm text-gray-400">Agent 1 | CA DRE# 12345678</p>
+            <p className="text-sm text-gray-400">Agent 2 | CA DRE# 87654321</p>
+            <p className="text-sm text-gray-400">Company | DRE# 11223344</p>
           </div>
 
           {/* Location */}
@@ -47,8 +47,7 @@ export default function Footer() {
         {/* Disclaimer */}
         <div className="text-center mb-8">
           <p className="text-sm text-gray-400 italic">
-            While some of the listings on this site may not be our exclusive listings, 
-            we have ongoing relationships with all of the listing agents. View our Disclaimer
+            This site may contain listings not exclusive to us, but we maintain strong relationships with the listing agents. View our Disclaimer
           </p>
         </div>
 
