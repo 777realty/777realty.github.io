@@ -1,0 +1,167 @@
+/*
+* LittleLink Button Styles
+* https://littlelink.io
+* Free to use under the MIT license
+* http://www.opensource.org/licenses/mit-license.php
+*/
+
+/* Brand Button Base Styles
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+/* Only include brand-specific button styling here */
+.button,button {
+  color:var(--button-text,#000000);
+  background-color:var(--button-background,transparent);
+	border:var(--button-border,none);
+	transition:filter 0.2s ease,transform 0.2s ease;
+}
+
+/* Global Button Hover Effect
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.button:hover,button:hover {
+	filter:brightness(90%);
+	transform:translateY(-1px);
+}
+
+/* Button Icons
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.icon {
+	filter:var(--icon-filter,none);
+}
+
+/* Brand-Specific Styles
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.realtor-text {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.instagram-link {
+    display: inline-block;
+    margin-top: 0.5rem;
+}
+
+.instagram-link .icon {
+    width: 32px;       /* same size as your other icons */
+    height: 32px;
+    object-fit: contain;
+    transition: transform 0.2s;
+}
+
+.instagram-link:hover .icon {
+    transform: scale(1.1);  /* subtle hover zoom effect */
+}
+
+/* Container for two buttons */
+.button-split-container {
+    display: flex;
+    gap: 0.5rem;               /* space between buttons */
+    justify-content: center;    /* center on page */
+    width: 18.75rem;            /* same width as original single button */
+    margin: 0 auto;             /* center container */
+}
+
+/* Each button takes half of container width */
+.button-split-container .button {
+    flex: 1;                    /* equal width */
+    min-width: 0;               /* prevents overflow */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 3rem;               /* same as original button */
+    padding: 0.75rem 1rem;      /* same padding */
+    font-size: 1.125rem;        /* same font size */
+    font-weight: 700;           /* same weight */
+    text-decoration: none;
+    border-radius: 0.5rem;      /* same border radius */
+    box-sizing: border-box;
+}
+
+/* Call Button Colors */
+.button-call {
+    --button-background: #000000;
+    --button-text: #ffffff;
+    background-color: var(--button-background);
+    color: var(--button-text);
+}
+
+/* Text Button Colors */
+.button-text {
+    --button-background: #000000;
+    --button-text: #ffffff;
+    background-color: var(--button-background);
+    color: var(--button-text);
+}
+
+/* Icon alignment */
+.button-split-container .button .icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-right: 0.5rem;
+    flex-shrink: 0;
+}
+
+
+/* Schedule a Showing */
+.button-schedule-a-showing {
+    --button-text: #ffffff;
+    --button-background: #000000;
+}
+
+/* 777 Real Estate & Investments */
+.button-777-real-estate---investments {
+    --button-text: #ffffff;
+    --button-background: #000000;
+}
+.featured-property-card {
+    max-width: 375px;                  /* match mobile card size */
+    margin: 1rem auto;
+    background-color: #1a0a3c;         /* dark card background */
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    overflow: hidden;
+    font-family: "Open Sans", system-ui;
+    color: #ffffff;
+}
+
+.map-preview iframe {
+    width: 100%;
+    height: 180px;
+    border: 0;
+    border-radius: 12px 12px 0 0;
+}
+
+.property-details {
+    padding: 1rem;
+    text-align: left;
+}
+
+.property-details .property-location {
+    font-weight: 700;
+    font-size: 1.125rem;
+    margin: 0 0 0.25rem 0;
+}
+
+.property-details .property-address {
+    font-size: 0.9rem;
+    margin: 0 0 0.75rem 0;
+}
+
+.button-directions {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 3rem;
+    background-color: #ffffff;
+    color: #1a0a3c;
+    font-weight: 700;
+    border-radius: 999px;   /* pill shape */
+    text-decoration: none;
+    text-align: center;
+    transition: background 0.2s;
+}
+
+.button-directions:hover {
+    background-color: #e0e0e0;
+}
