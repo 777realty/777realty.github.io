@@ -43,8 +43,8 @@ export default function Navbar() {
             <Link href="/contact" className="hidden lg:inline-block hover:opacity-80 transition-opacity whitespace-nowrap">
               CONTACT US
             </Link>
-            <a href="tel:+17478880000" className="hidden lg:inline-block hover:opacity-80 transition-opacity whitespace-nowrap">
-              (747) 888-0000
+            <a href="tel:+15551234567" className="hidden lg:inline-block hover:opacity-80 transition-opacity whitespace-nowrap">
+              (555) 123-4567
             </a>
           </nav>
 

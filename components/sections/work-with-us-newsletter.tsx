@@ -21,9 +21,9 @@ export default function WorkWithUsNewsletter() {
                 We offer the highest level of expertise and service with integrity.
               </p>
               <p className="text-sm mb-8 leading-relaxed">
-                Jeff Biebuyck & Dawn Olmos are Luxury Homes Specialists in Calabasas with a particular expertise in
+                Agent 1 and Agent 2 are Luxury Homes Specialists in Calabasas with a particular expertise in
                 Hidden Hills, The Oaks, Bell Canyon, Calabasas, West San Fernando Valley, Conejo Valley, Malibu and
-                Greater Los Angeles areas. As consummate professionals, Jeff Biebuyck & Dawn Olmos provide their
+                Greater Los Angeles areas. As consummate professionals, Agent 1 and Agent 2 provide their
                 clients with the highest level of service to reach their unique real estate goals.
               </p>
               <Link

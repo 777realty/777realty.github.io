@@ -11,7 +11,6 @@ export default function Footer() {
             <h3 className="text-sm tracking-widest mb-4">777 REAL ESTATE & INVESTMENTS</h3>
             <p className="text-sm text-gray-400 mb-2">Premier Real Estate Agents</p>
             <p className="text-sm text-gray-400 mb-2">in Greater Los Angeles, San Fernando Valley Areas</p>
-            <p className="text-sm text-gray-400 mb-2">and Conejo Valley Areas</p>
             <p className="text-sm text-gray-400">Agent 1 | CA DRE# 12345678</p>
             <p className="text-sm text-gray-400">Agent 2 | CA DRE# 87654321</p>
             <p className="text-sm text-gray-400">Company | DRE# 11223344</p>
@@ -20,7 +19,7 @@ export default function Footer() {
           {/* Location */}
           <div>
             <h3 className="text-sm tracking-widest mb-4">LOCATION</h3>
-            <p className="text-sm text-gray-400 mb-4">25500 Long Valley Rd,<br />Hidden Hills, CA 91302, USA</p>
+            <p className="text-sm text-gray-400 mb-4">123 Main St,<br />Los Angeles, CA 90210, USA</p>
             <Link href="/directions" className="text-sm text-gray-400 hover:text-white transition-colors">
               Get Directions
             </Link>
@@ -29,7 +28,7 @@ export default function Footer() {
           {/* Contact */}
           <div>
             <h3 className="text-sm tracking-widest mb-4">CONTACT US</h3>
-            <p className="text-sm text-gray-400 mb-2">(747) 888-0000</p>
+            <p className="text-sm text-gray-400 mb-2">(555) 123-4567</p>
           </div>
         </div>
 
