@@ -146,11 +146,17 @@ button:hover {
     color: #ffffff;
 }
 
+.map-preview {
+    padding: 6px 6px 0 6px;
+    background-color: #000000;
+}
+
 .map-preview iframe {
     width: 100%;
     height: 140px;
     border: 0;
-    border-radius: 12px 12px 0 0;
+    display: block;
+    border-radius: 8px;
 }
 
 .property-details {
