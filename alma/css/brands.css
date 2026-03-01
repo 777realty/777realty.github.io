@@ -8,24 +8,26 @@
 /* Brand Button Base Styles
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 /* Only include brand-specific button styling here */
-.button,button {
-  color:var(--button-text,#000000);
-  background-color:var(--button-background,transparent);
-	border:var(--button-border,none);
-	transition:filter 0.2s ease,transform 0.2s ease;
+.button,
+button {
+    color: var(--button-text, #000000);
+    background-color: var(--button-background, transparent);
+    border: var(--button-border, none);
+    transition: filter 0.2s ease, transform 0.2s ease;
 }
 
 /* Global Button Hover Effect
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-.button:hover,button:hover {
-	filter:brightness(90%);
-	transform:translateY(-1px);
+.button:hover,
+button:hover {
+    filter: brightness(90%);
+    transform: translateY(-1px);
 }
 
 /* Button Icons
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .icon {
-	filter:var(--icon-filter,none);
+    filter: var(--icon-filter, none);
 }
 
 /* Brand-Specific Styles
@@ -42,38 +44,51 @@
 }
 
 .instagram-link .icon {
-    width: 32px;       /* same size as your other icons */
+    width: 32px;
+    /* same size as your other icons */
     height: 32px;
     object-fit: contain;
     transition: transform 0.2s;
 }
 
 .instagram-link:hover .icon {
-    transform: scale(1.1);  /* subtle hover zoom effect */
+    transform: scale(1.1);
+    /* subtle hover zoom effect */
 }
 
 /* Container for two buttons */
 .button-split-container {
     display: flex;
-    gap: 0.5rem;               /* space between buttons */
-    justify-content: center;    /* center on page */
-    width: 18.75rem;            /* same width as original single button */
-    margin: 0 auto;             /* center container */
+    gap: 0.5rem;
+    /* space between buttons */
+    justify-content: center;
+    /* center on page */
+    width: 18.75rem;
+    /* same width as original single button */
+    margin: 0 auto;
+    /* center container */
 }
 
 /* Each button takes half of container width */
 .button-split-container .button {
-    flex: 1;                    /* equal width */
-    min-width: 0;               /* prevents overflow */
+    flex: 1;
+    /* equal width */
+    min-width: 0;
+    /* prevents overflow */
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    height: 3rem;               /* same as original button */
-    padding: 0.75rem 1rem;      /* same padding */
-    font-size: 1.125rem;        /* same font size */
-    font-weight: 700;           /* same weight */
+    height: 3rem;
+    /* same as original button */
+    padding: 0.75rem 1rem;
+    /* same padding */
+    font-size: 1.125rem;
+    /* same font size */
+    font-weight: 700;
+    /* same weight */
     text-decoration: none;
-    border-radius: 0.5rem;      /* same border radius */
+    border-radius: 0.5rem;
+    /* same border radius */
     box-sizing: border-box;
 }
 
@@ -113,12 +128,15 @@
     --button-text: #ffffff;
     --button-background: #000000;
 }
+
 .featured-property-card {
-    max-width: 375px;                  /* match mobile card size */
+    max-width: 375px;
+    /* match mobile card size */
     margin: 1rem auto;
-    background-color: #1a0a3c;         /* dark card background */
+    background-color: #1a0a3c;
+    /* dark card background */
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     overflow: hidden;
     font-family: "Open Sans", system-ui;
     color: #ffffff;
@@ -156,7 +174,8 @@
     background-color: #ffffff;
     color: #1a0a3c;
     font-weight: 700;
-    border-radius: 999px;   /* pill shape */
+    border-radius: 999px;
+    /* pill shape */
     text-decoration: none;
     text-align: center;
     transition: background 0.2s;
