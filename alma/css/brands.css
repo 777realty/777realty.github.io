@@ -8,24 +8,26 @@
 /* Brand Button Base Styles
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 /* Only include brand-specific button styling here */
-.button,button {
-  color:var(--button-text,#000000);
-  background-color:var(--button-background,transparent);
-	border:var(--button-border,none);
-	transition:filter 0.2s ease,transform 0.2s ease;
+.button,
+button {
+    color: var(--button-text, #000000);
+    background-color: var(--button-background, transparent);
+    border: var(--button-border, none);
+    transition: filter 0.2s ease, transform 0.2s ease;
 }
 
 /* Global Button Hover Effect
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-.button:hover,button:hover {
-	filter:brightness(90%);
-	transform:translateY(-1px);
+.button:hover,
+button:hover {
+    filter: brightness(90%);
+    transform: translateY(-1px);
 }
 
 /* Button Icons
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .icon {
-	filter:var(--icon-filter,none);
+    filter: var(--icon-filter, none);
 }
 
 /* Brand-Specific Styles
@@ -42,39 +44,47 @@
 }
 
 .instagram-link .icon {
-    width: 32px;       /* same size as your other icons */
+    width: 32px;
+    /* same size as your other icons */
     height: 32px;
     object-fit: contain;
     transition: transform 0.2s;
+    /* Make the original black/blue instagram PNG image white */
+    filter: brightness(0) invert(1);
 }
 
 .instagram-link:hover .icon {
-    transform: scale(1.1);  /* subtle hover zoom effect */
+    transform: scale(1.1);
+    /* subtle hover zoom effect */
 }
 
 /* Container for two buttons */
 .button-split-container {
     display: flex;
-    gap: 0.5rem;               /* space between buttons */
-    justify-content: center;    /* center on page */
-    width: 18.75rem;            /* same width as original single button */
-    margin: 0 auto;             /* center container */
+    gap: 0.5rem;
+    /* space between buttons */
+    justify-content: center;
+    /* center on page */
+    width: 100%;
+    margin: 0 auto;
+    /* center container */
 }
 
 /* Each button takes half of container width */
 .button-split-container .button {
-    flex: 1;                    /* equal width */
-    min-width: 0;               /* prevents overflow */
+    flex: 1;
+    min-width: 0;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    height: 3rem;               /* same as original button */
-    padding: 0.75rem 1rem;      /* same padding */
-    font-size: 1.125rem;        /* same font size */
-    font-weight: 700;           /* same weight */
+    height: 3.5rem;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    font-weight: 600;
     text-decoration: none;
-    border-radius: 0.5rem;      /* same border radius */
+    border-radius: 8px;
     box-sizing: border-box;
+    position: relative;
 }
 
 /* Call Button Colors */
@@ -94,11 +104,24 @@
 }
 
 /* Icon alignment */
-.button-split-container .button .icon {
-    width: 1.25rem;
-    height: 1.25rem;
-    margin-right: 0.5rem;
-    flex-shrink: 0;
+.button .icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1.5rem;
+    height: 1.5rem;
+    margin: 0;
+}
+
+/* Dots alignment in buttons and map card */
+.card-dots {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: auto;
+    height: auto;
 }
 
 
@@ -113,55 +136,132 @@
     --button-text: #ffffff;
     --button-background: #000000;
 }
+
 .featured-property-card {
-    max-width: 375px;                  /* match mobile card size */
+    max-width: 100%;
     margin: 1rem auto;
-    background-color: #1a0a3c;         /* dark card background */
+    background-color: #000000;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     overflow: hidden;
-    font-family: "Open Sans", system-ui;
     color: #ffffff;
 }
 
 .map-preview iframe {
     width: 100%;
-    height: 180px;
+    height: 140px;
     border: 0;
     border-radius: 12px 12px 0 0;
 }
 
 .property-details {
     padding: 1rem;
-    text-align: left;
+    text-align: center;
 }
 
 .property-details .property-location {
     font-weight: 700;
-    font-size: 1.125rem;
+    font-size: 1.1rem;
     margin: 0 0 0.25rem 0;
 }
 
 .property-details .property-address {
-    font-size: 0.9rem;
-    margin: 0 0 0.75rem 0;
+    font-size: 0.8rem;
+    margin: 0 0 1rem 0;
+    color: #b3b3b3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .button-directions {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    min-height: 3rem;
-    background-color: #ffffff;
-    color: #1a0a3c;
-    font-weight: 700;
-    border-radius: 999px;   /* pill shape */
+    font-size: 0.9rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff !important;
+    padding: 0.8rem 2rem;
+    border-radius: 9999px;
     text-decoration: none;
-    text-align: center;
-    transition: background 0.2s;
+    font-weight: 700;
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 250px;
+    box-sizing: border-box;
+    transition: background-color 0.2s;
 }
 
 .button-directions:hover {
-    background-color: #e0e0e0;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Top Bar Icons */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+}
+
+.top-icon-btn {
+    width: 40px;
+    height: 40px;
+    min-height: 40px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    border: none;
+    color: #000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+    flex-shrink: 0;
+}
+
+.top-icon-btn:hover {
+    background-color: #f3f3f3;
+    transform: scale(1.05);
+}
+
+/* Linktree Footer */
+.linktree-footer {
+    margin-top: 3rem;
+    text-align: center;
+    padding-bottom: 2rem;
+}
+
+.join-btn {
+    display: inline-block;
+    background-color: #fff !important;
+    color: #000 !important;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 16px 28px;
+    border-radius: 9999px;
+    margin-bottom: 24px;
+    transition: filter 0.2s;
+}
+
+.join-btn:hover {
+    filter: brightness(90%);
+}
+
+.footer-links {
+    font-size: 0.75rem;
+    color: #fff;
+    opacity: 0.8;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.footer-links a {
+    color: #ffffff !important;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
 }

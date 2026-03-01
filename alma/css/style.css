@@ -8,240 +8,282 @@
 /* Base Typography Settings
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 :root {
-	font-size:16px;
+	font-size: 16px;
 }
 
 /* Grid
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
-  .container {
-	position:relative;
-	width:100%;
-	max-width:37.5rem;     				/* 600px */
-    text-align:center;
-	margin:0 auto;
-	padding:3rem 1.25rem 0 1.25rem;
-	box-sizing:border-box;
+.container {
+	position: relative;
+	width: 100%;
+	max-width: 580px;
+	text-align: center;
+	margin: 3rem auto 0 auto;
+	padding: 3rem 1rem 1.5rem;
+	box-sizing: border-box;
+
+	/* The background gradient of the main card */
+	background: linear-gradient(180deg, #9062cc 0%, #31115a 100%);
+	/* Rounded edges to match the app-like window bounding box */
+	border-radius: 24px 24px 0 0;
+	/* height goes from the 3rem margin all the way down */
+	height: calc(100vh - 3rem);
+	overflow-y: auto;
+	-ms-overflow-style: none;
+	/* IE and Edge */
+	scrollbar-width: none;
+	/* Firefox */
 }
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.container::-webkit-scrollbar {
+	display: none;
+}
+
 .container-left {
-	position:relative;
-	width:100%;
-	max-width:37.5rem;
-	text-align:left;
-	margin:0 auto;
-	padding:0 1.25rem;
-	box-sizing:border-box;
+	position: relative;
+	width: 100%;
+	max-width: 37.5rem;
+	text-align: left;
+	margin: 0 auto;
+	padding: 0 1.25rem;
+	box-sizing: border-box;
 }
+
 .container-left p {
-	margin-bottom: 1rem;  				/* 16px space between paragraphs */
-  }
+	margin-bottom: 1rem;
+	/* 16px space between paragraphs */
+}
+
 .column {
-	position:center;
-	width:100%;
-	float:center;
-	box-sizing:border-box;
+	position: center;
+	width: 100%;
+	float: center;
+	box-sizing: border-box;
 }
-/* For devices larger than 400px */
-  @media (min-width:25rem) {            /* 400px */
-    .container {
-	width:85%;
-	padding-left:0;
-	padding-right:0;
+
+/* Full screen container logic */
+@media (max-width: 700px) {
+	.container {
+		width: 100%;
+		max-width: 100%;
+		margin: 0;
+		border-radius: 0;
+		box-shadow: none;
+		min-height: 100vh;
+	}
 }
-}/* For devices larger than 550px */
-  @media (min-width:34.375rem) {        /* 550px */
-    .container {
-	width:80%;
-}
-.column,.columns {
-	margin-left:0;
-}
-.column:first-child,.columns:first-child {
-	margin-left:0;
-}
-}
+
+
 
 /* Base Styles
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
-  body {
-	margin:0;
-	padding:0;
-	background-color:#0a1f44;
-	color:#1a1a1a;
-	font-family:"Open Sans",system-ui;
-	font-size:1.125rem;     				/* 18px */
-    font-weight:400;
-	line-height:1.6;
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #0a1f44;
+	color: #1a1a1a;
+	font-family: "Open Sans", system-ui;
+	font-size: 1.125rem;
+	/* 18px */
+	font-weight: 400;
+	line-height: 1.6;
 }
 
 /* Typography
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
-  h1 {
-	margin:0 0 0.5rem 0;
-	font-size:3rem;         		/* 48px */
-    font-weight:800;
-	line-height:1;
-	letter-spacing:0;
-	word-wrap:break-word;
-	overflow-wrap:break-word;
-	hyphens:auto;           		/* Delete this to remove automatic hyphen on line break */
+h1 {
+	margin: 0 0 0.5rem 0;
+	font-size: 2.25rem;
+	font-weight: 800;
+	line-height: 1.1;
+	letter-spacing: -0.01em;
+	color: #ffffff;
 }
+
 .container p {
-	margin:0 0 2rem 0;
+	margin: 0 0 2rem 0;
 }
 
 /* Base Typography Settings
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 /* Base size - 16px browser default */
 :root {
-  font-size:16px;           /* Using a 1.25 modular scale for typography */
-  --scale-0:1rem;           /* 16px */
-  --scale-1:1.25rem;        /* 20px */
-  --scale-2:1.563rem;       /* 25px */
-  --scale-3:1.953rem;       /* 31px */
-  --scale-4:2.441rem;       /* 39px */
-  --scale-5:3.052rem;       /* 49px */
+	font-size: 16px;
+	/* Using a 1.25 modular scale for typography */
+	--scale-0: 1rem;
+	/* 16px */
+	--scale-1: 1.25rem;
+	/* 20px */
+	--scale-2: 1.563rem;
+	/* 25px */
+	--scale-3: 1.953rem;
+	/* 31px */
+	--scale-4: 2.441rem;
+	/* 39px */
+	--scale-5: 3.052rem;
+	/* 49px */
 
-  /* Spacing units */
-  --spacing-xs:0.5rem;      /* 8px */
-  --spacing-s:1rem;         /* 16px */
-  --spacing-m:1.5rem;       /* 24px */
-  --spacing-l:2rem;         /* 32px */
-  --spacing-xl:3rem;        /* 48px */
-  --spacing-xxl:4rem;       /* 64px */
+	/* Spacing units */
+	--spacing-xs: 0.5rem;
+	/* 8px */
+	--spacing-s: 1rem;
+	/* 16px */
+	--spacing-m: 1.5rem;
+	/* 24px */
+	--spacing-l: 2rem;
+	/* 32px */
+	--spacing-xl: 3rem;
+	/* 48px */
+	--spacing-xxl: 4rem;
+	/* 64px */
 }
 
 /* Avatar */
 .avatar {
-	width: 8rem;             /* 128px */
-	height: 8rem;
+	width: 96px;
+	height: 96px;
 	border-radius: 50%;
 	object-fit: cover;
 	background-position: center;
-	margin-bottom: var(--spacing-l);
+	margin-bottom: 1rem;
 	margin-left: auto;
 	margin-right: auto;
 	display: block;
-  }
+	/* subtle avatar border effect */
+	box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1);
+}
 
-/* Typography Scale */
-h1 {
-	margin:0 0 var(--spacing-m) 0;
-	font-size:var(--scale-5);           /* ~49px */
-  	font-weight:800;
-	line-height:1.1;
-	letter-spacing:-0.02em;
-	word-wrap:break-word;
-	overflow-wrap:break-word;
-}
+/* Additional typography */
+
 body {
-	font-size:var(--scale-1);           /* 20px */
-  	line-height:1.6;
+	font-size: var(--scale-1);
+	/* 20px */
+	line-height: 1.6;
 }
+
 .container p {
-	margin:0 0 var(--spacing-xl) 0;
-	font-size:var(--scale-1);
-	line-height:1.6;
+	margin: 0 0 var(--spacing-xl) 0;
+	font-size: var(--scale-1);
+	line-height: 1.6;
 }
 
 /* Container spacing */
 .container {
-	padding:var(--spacing-xl) var(--spacing-m) 0 var(--spacing-m);
-	text-align:center;
+	padding: var(--spacing-xl) var(--spacing-m) 0 var(--spacing-m);
+	text-align: center;
 }
 
 /* Footer */
 footer {
-	margin:var(--spacing-xxl) 0;            /* 4rem (64px) top and bottom */
-    font-size:var(--scale-0);
+	margin: var(--spacing-xxl) 0;
+	/* 4rem (64px) top and bottom */
+	font-size: var(--scale-0);
 }
 
 /* Responsive adjustments */
-@media (max-width:34.375rem) {              /* 550px */
-  h1 {
-	font-size:var(--scale-4);
-}
-body {
-	font-size:var(--scale-0);
-}
-.container p {
-	font-size:var(--scale-0);
-}
-.avatar {
-	margin-bottom:var(--spacing-m);
-}
-footer {
-	margin:var(--spacing-xl) 0;         	/* 3rem (48px) top and bottom */
-}
+@media (max-width:34.375rem) {
+
+	/* 550px */
+	h1 {
+		font-size: var(--scale-4);
+	}
+
+	body {
+		font-size: var(--scale-0);
+	}
+
+	.container p {
+		font-size: var(--scale-0);
+	}
+
+	.avatar {
+		margin-bottom: var(--spacing-m);
+	}
+
+	footer {
+		margin: var(--spacing-xl) 0;
+		/* 3rem (48px) top and bottom */
+	}
 }
 
 /* Links
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
-  a {
-	color:#2457F5;
-	text-decoration:underline;
+a {
+	color: #2457F5;
+	text-decoration: underline;
 }
+
 a:hover {
-	color:#083BDA;
+	color: #083BDA;
 }
 
 /* Buttons
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-.button,button {
-	display:inline-flex;
-	align-items:center;
-	justify-content:center;
-	width:18.75rem;             	/* 300px */
- 	min-height:3rem;                /* 48px */
-  	padding:0.75rem 1rem;         	/* 12px ; 16px */
-  	font-size:1.125rem;           	/* 18px */
-  	font-weight:700;
-	text-decoration:none;
-	white-space:normal;
-  	background-color:var(--button-background,transparent);
-	color:var(--button-text,#000000);
-	border:var(--button-border,none);
-	border-radius:0.5rem;
-	cursor:pointer;
-	box-sizing:border-box;
-	hyphens:auto;               	/* Delete this to remove automatic hyphen on line break */
-  	margin-bottom:1rem;
-	text-align:center;
-	line-height:1.3;
+.button,
+button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	min-height: 3.5rem;
+	/* 56px */
+	padding: 0.75rem 1rem;
+	/* 12px ; 16px */
+	font-size: 1rem;
+	/* 16px */
+	font-weight: 600;
+	text-decoration: none;
+	white-space: normal;
+	background-color: var(--button-background, transparent);
+	color: var(--button-text, #000000);
+	border: var(--button-border, none);
+	border-radius: 8px;
+	cursor: pointer;
+	position: relative;
+	box-sizing: border-box;
+	hyphens: auto;
+	/* Delete this to remove automatic hyphen on line break */
+	margin-bottom: 1rem;
+	text-align: center;
+	line-height: 1.3;
 }
 
 /* Icons
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .icon {
-	width:1.25rem;
-	height:1.25rem;
-	margin-right:0.5rem;
-	flex-shrink:0;
+	width: 1.25rem;
+	height: 1.25rem;
+	margin-right: 0.5rem;
+	flex-shrink: 0;
 }
 
 /* Avatar
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .avatar {
-	width: 8rem;             /* 128px */
+	width: 8rem;
+	/* 128px */
 	height: 8rem;
 	object-fit: cover;
 	background-position: center;
 	margin-bottom: var(--spacing-l);
-  }
+}
 
-   /* Modifier for no avatar rounding */
-   .avatar--none {
+/* Modifier for no avatar rounding */
+.avatar--none {
 	border-radius: 0%;
-  }
+}
 
-  /* Modifier for rounded avatar */
-  .avatar--rounded {
+/* Modifier for rounded avatar */
+.avatar--rounded {
 	border-radius: 50%;
-  }
+}
 
-  /* Modifier for slightly rounded corners */
-  .avatar--soft {
-	border-radius: 0.5rem;   /* 8px rounded corners */
-  }
+/* Modifier for slightly rounded corners */
+.avatar--soft {
+	border-radius: 0.5rem;
+	/* 8px rounded corners */
+}
 
 /* Theme System
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -249,162 +291,176 @@ a:hover {
 
 /* Dark theme */
 :root.theme-dark {
-	color-scheme:dark;
+	color-scheme: dark;
 }
+
 :root.theme-dark :focus-visible {
 	outline: 2px solid #4899F7;
 	outline-offset: 2px;
-  }
+}
+
 :root.theme-dark body {
-	background-color:#121212;
-	color:#ffffff;
+	background-color: #121212;
+	color: #ffffff;
 }
+
 :root.theme-dark a:not(.button) {
-	color:#4899F7;
+	color: #4899F7;
 }
+
 :root.theme-dark a:not(.button):hover {
-	color:#7AB8FF;
+	color: #7AB8FF;
 }
 
 /* Auto theme */
 :root.theme-auto {
-	color-scheme:light dark;
+	color-scheme: light dark;
 }
+
 @media (prefers-color-scheme:dark) {
 	:root.theme-auto body {
-	background-color:#121212;
-	color:#ffffff;
-}
-:root.theme-auto :focus-visible {
-    outline: 2px solid #4899F7;
-    outline-offset: 2px;
-  }
-:root.theme-auto a:not(.button) {
-	color:#4899F7;
-}
-:root.theme-auto a:not(.button):hover {
-	color:#7AB8FF;
-}
+		background-color: #121212;
+		color: #ffffff;
+	}
+
+	:root.theme-auto :focus-visible {
+		outline: 2px solid #4899F7;
+		outline-offset: 2px;
+	}
+
+	:root.theme-auto a:not(.button) {
+		color: #4899F7;
+	}
+
+	:root.theme-auto a:not(.button):hover {
+		color: #7AB8FF;
+	}
 }
 
 /* Button Text Color Override
     –––––––––––––––––––––––––––––––––––––––––––––––––– */
-    .button:hover,button:hover {
-	color:var(--button-text);
+.button:hover,
+button:hover {
+	color: var(--button-text);
 }
 
 /* Responsive Typography
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
-  @media (max-width:34.375rem) {            /* 550px */
-    h1 {
-	font-size:2rem;                         /* 32px */
+@media (max-width:34.375rem) {
+
+	/* 550px */
+	h1 {
+		font-size: 2rem;
+		/* 32px */
 	}
+
 	body {
-	font-size:1rem;                    		/* 16px */
+		font-size: 1rem;
+		/* 16px */
 	}
 }
 
 /* Privacy Page Styles
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
 nav {
-	margin:var(--spacing-l) 0;
-	text-align:left;
+	margin: var(--spacing-l) 0;
+	text-align: left;
 }
+
 section {
-	margin:var(--spacing-xl) 0;
-	text-align:left;
+	margin: var(--spacing-xl) 0;
+	text-align: left;
 }
+
 h2 {
-	font-size:var(--scale-3);
-	font-weight:700;
-	margin-bottom:var(--spacing-m);
+	font-size: var(--scale-3);
+	font-weight: 700;
+	margin-bottom: var(--spacing-m);
 }
+
 h3 {
-	font-size:var(--scale-2);
-	font-weight:600;
-	margin:var(--spacing-l) 0 var(--spacing-s) 0;
+	font-size: var(--scale-2);
+	font-weight: 600;
+	margin: var(--spacing-l) 0 var(--spacing-s) 0;
 }
+
 ul {
-	list-style:none;
-	padding:0;
-	margin:0 0 var(--spacing-m) 0;
+	list-style: none;
+	padding: 0;
+	margin: 0 0 var(--spacing-m) 0;
 }
+
 ul li {
-	margin-bottom:var(--spacing-xs);
+	margin-bottom: var(--spacing-xs);
 }
 
 /* Privacy page specific responsive adjustments */
-  @media (max-width:34.375rem) {
+@media (max-width:34.375rem) {
 	h2 {
-	font-size:var(--scale-2);
+		font-size: var(--scale-2);
 	}
+
 	h3 {
-	font-size:var(--scale-1);
+		font-size: var(--scale-1);
 	}
+
 	section {
-	margin:var(--spacing-l) 0;
+		margin: var(--spacing-l) 0;
 	}
 }
 
 /* Font Face Definitions
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
 @font-face {
-	font-display:swap;
-	font-family:'Open Sans';
-	font-style:normal;
-	font-weight:400;
-	src:url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-regular.eot');
-	src:url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-regular.eot?#iefix') format('embedded-opentype'),url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-regular.woff2') format('woff2'),url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-regular.woff') format('woff'),url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-regular.ttf') format('truetype'),url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-regular.svg#OpenSans') format('svg');
+	font-display: swap;
+	font-family: 'Open Sans';
+	font-style: normal;
+	font-weight: 400;
+	src: url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-regular.eot');
+	src: url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-regular.woff2') format('woff2'), url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-regular.woff') format('woff'), url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-regular.ttf') format('truetype'), url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-regular.svg#OpenSans') format('svg');
 }
+
 @font-face {
-	font-display:swap;
-	font-family:'Open Sans';
-	font-style:normal;
-	font-weight:600;
-	src:url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-600.eot');
-	src:url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-600.eot?#iefix') format('embedded-opentype'),url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-600.woff2') format('woff2'),url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-600.woff') format('woff'),url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-600.ttf') format('truetype'),url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-600.svg#OpenSans') format('svg');
+	font-display: swap;
+	font-family: 'Open Sans';
+	font-style: normal;
+	font-weight: 600;
+	src: url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-600.eot');
+	src: url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-600.eot?#iefix') format('embedded-opentype'), url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-600.woff2') format('woff2'), url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-600.woff') format('woff'), url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-600.ttf') format('truetype'), url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-600.svg#OpenSans') format('svg');
 }
+
 @font-face {
-	font-display:swap;
-	font-family:'Open Sans';
-	font-style:normal;
-	font-weight:700;
-	src:url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-700.eot');
-	src:url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-700.eot?#iefix') format('embedded-opentype'),url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-700.woff2') format('woff2'),url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-700.woff') format('woff'),url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-700.ttf') format('truetype'),url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-700.svg#OpenSans') format('svg');
+	font-display: swap;
+	font-family: 'Open Sans';
+	font-style: normal;
+	font-weight: 700;
+	src: url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-700.eot');
+	src: url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-700.eot?#iefix') format('embedded-opentype'), url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-700.woff2') format('woff2'), url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-700.woff') format('woff'), url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-700.ttf') format('truetype'), url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-700.svg#OpenSans') format('svg');
 }
+
 @font-face {
-	font-display:swap;
-	font-family:'Open Sans';
-	font-style:normal;
-	font-weight:800;
-	src:url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-800.eot');
-	src:url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-800.eot?#iefix') format('embedded-opentype'),url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-800.woff2') format('woff2'),url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-800.woff') format('woff'),url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-800.ttf') format('truetype'),url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-800.svg#OpenSans') format('svg');
+	font-display: swap;
+	font-family: 'Open Sans';
+	font-style: normal;
+	font-weight: 800;
+	src: url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-800.eot');
+	src: url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-800.eot?#iefix') format('embedded-opentype'), url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-800.woff2') format('woff2'), url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-800.woff') format('woff'), url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-800.ttf') format('truetype'), url('../fonts/open-sans-v34-vietnamese_latin-ext_latin_hebrew_greek-ext_greek_cyrillic-ext_cyrillic-800.svg#OpenSans') format('svg');
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-    background: radial-gradient(circle at center, #0d002a, #1a0a3c, #2b0061, #3c0073, #5a1a8b, #ff6ec4);
-    background-size: 400% 400%;
-    animation: gradientCircle 8s linear infinite;
-    color: #ffffff;
-    font-family: "Open Sans", system-ui;
+	margin: 0;
+	padding: 0;
+	height: 100vh;
+	overflow: hidden;
+	/* Original requested outer background matching pic */
+	background: linear-gradient(135deg, #e452a3 0%, #7e1eb8 40%, #2f0a63 70%, #15023a 100%);
+	color: #ffffff;
+	font-family: "Open Sans", system-ui;
 }
 
-@keyframes gradientCircle {
-    0% { background-position: 50% 50%; }
-    25% { background-position: 100% 50%; }
-    50% { background-position: 50% 100%; }
-    75% { background-position: 0% 50%; }
-    100% { background-position: 50% 50%; }
-}
-
-/* Dark/auto theme override */
-:root.theme-dark body,
-:root.theme-auto body {
-    background: radial-gradient(circle at center, #0d002a, #1a0a3c, #2b0061, #3c0073, #5a1a8b, #ff6ec4) !important;
-    background-size: 400% 400% !important;
-    animation: gradientCircle 8s linear infinite !important;
-    color: #ffffff !important;
+/* Auto theme override */
+:root.theme-auto body,
+:root.theme-dark body {
+	background: linear-gradient(135deg, #e452a3 0%, #7e1eb8 40%, #2f0a63 70%, #15023a 100%) !important;
+	color: #ffffff !important;
 }
