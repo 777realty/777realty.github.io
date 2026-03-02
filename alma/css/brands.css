@@ -187,7 +187,7 @@ button:hover {
     pointer-events: none;
     /* Let the user still click and drag the underlying map */
     z-index: 5;
-    animation: float-cloud 60s linear infinite;
+    animation: float-cloud 50s linear infinite;
 }
 
 @keyframes float-cloud {
@@ -215,20 +215,15 @@ button:hover {
     position: absolute;
     top: 50%;
     left: 50%;
-    font-size: 28px;
-    width: 32px;
-    height: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 28px;
+    height: 28px;
     pointer-events: none;
     z-index: 6;
     animation: fly-plane 60s linear infinite;
     transform-origin: center;
     opacity: 0;
     will-change: transform;
-    /* Soft shadow to match iOS emoji style */
-    filter: drop-shadow(0px 12px 6px rgba(0, 0, 0, 0.3));
+    filter: drop-shadow(0px 8px 10px rgba(0, 0, 0, 0.4));
 }
 
 @keyframes fly-plane {
