@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Toggle Window Visibility
     function toggleChat() {
         const isHidden = chatbotWindow.classList.contains('hidden');
-        
+
         if (isHidden) {
             chatbotWindow.classList.remove('hidden');
             chatbotToggle.classList.add('open');
@@ -34,11 +34,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const msgDiv = document.createElement('div');
         msgDiv.classList.add('message');
         msgDiv.classList.add(sender === 'user' ? 'user-message' : 'bot-message');
-        
+
         const p = document.createElement('p');
         p.textContent = text;
         msgDiv.appendChild(p);
-        
+
         chatbotMessages.appendChild(msgDiv);
         chatbotMessages.scrollTop = chatbotMessages.scrollHeight; // Auto scroll to bottom
     }
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const typingDiv = document.createElement('div');
         typingDiv.classList.add('typing-indicator');
-        
+
         for (let i = 0; i < 3; i++) {
             const dot = document.createElement('div');
             dot.classList.add('typing-dot');
@@ -72,10 +72,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // Store message history to maintain context
+    let chatHistory = [];
+
     // Handle Form Submission
     chatbotForm.addEventListener('submit', async (e) => {
         e.preventDefault();
-        
+
         const messageText = chatbotInput.value.trim();
         if (!messageText) return;
 
@@ -83,14 +86,34 @@ document.addEventListener('DOMContentLoaded', () => {
         appendMessage(messageText, 'user');
         chatbotInput.value = '';
 
+        // Add to history
+        chatHistory.push({ role: 'user', content: messageText });
+
         // 2. Show thinking indicator
         showTypingIndicator();
 
-        // [TODO] - WE WILL HOOK THIS UP TO VERCEL BACKEND ROUTE LATER
-        // For now, simulate network delay and fake response
-        setTimeout(() => {
+        try {
+            // Call the Vercel backend we just created!
+            const response = await fetch('/api/chat', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ messages: chatHistory })
+            });
+
             removeTypingIndicator();
-            appendMessage("I am a demo AI! I will be fully functional once we migrate hosting to securely pass your API keys. :)", 'bot');
-        }, 1500);
+
+            const data = await response.json();
+
+            if (response.ok && data.choices && data.choices[0]) {
+                const botReply = data.choices[0].message.content;
+                appendMessage(botReply, 'bot');
+                chatHistory.push({ role: 'assistant', content: botReply });
+            } else {
+                appendMessage("Oops! " + (data.error || "I'm having trouble connecting to my brain right now. Make sure you've added your OPENROUTER_API_KEY in Vercel!"), 'bot');
+            }
+        } catch (error) {
+            removeTypingIndicator();
+            appendMessage("I couldn't reach the server. Please try again later.", 'bot');
+        }
     });
 });
