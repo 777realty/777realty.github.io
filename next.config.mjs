@@ -7,11 +7,6 @@ try {
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // ✅ Required for fully static export
-  output: 'export',
-  // ✅ Ensures relative paths for GitHub Pages root
-  assetPrefix: '',
-
   eslint: {
     ignoreDuringBuilds: true,
   },

@@ -33,6 +33,7 @@
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/brands.css">
+  <link rel="stylesheet" href="css/chatbot.css">
 
   <!-- LittleLink Extended Stylesheet (Optional) -->
   <!-- <link rel="stylesheet" href="css/brands-extended.css"> -->
@@ -90,16 +91,18 @@
 
       <div class="featured-property-card">
         <!-- Map preview -->
-        <!-- Map preview -->
-        <div class="map-crop">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3301.123456!2d-118.454321!3d34.308765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2abcd1234567%3A0xabcdef123456789!2s12219+Frank+Modugno+Dr%2C+San+Fernando%2C+CA+91340!5e0!3m2!1sen!2sus!4v1234567890"
-            width="100%" allowfullscreen="" loading="lazy">
-          </iframe>
-          <!-- Authentic Linktree plane overlay -->
-          <img class="map-plane"
-            src="data:image/png;base64,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"
-            alt="Moving Plane">
+        <div class="map-preview">
+          <div class="map-crop">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3301.123456!2d-118.454321!3d34.308765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2abcd1234567%3A0xabcdef123456789!2s12219+Frank+Modugno+Dr%2C+San+Fernando%2C+CA+91340!5e0!3m2!1sen!2sus!4v1234567890"
+              width="100%" allowfullscreen="" loading="lazy">
+            </iframe>
+            <!-- Authentic Linktree plane overlay -->
+            <div class="map-plane-container">
+              <img class="map-plane-shadow" src="images/icons/ios_airplane.png" alt="">
+              <img class="map-plane-img" src="images/icons/ios_airplane.png" alt="Moving Plane">
+            </div>
+          </div>
         </div>
 
         <!-- Property details -->
@@ -121,6 +124,7 @@
       <!-- Two Buttons Side by Side, same size as original -->
       <div class="button-split-container">
         <a class="button button-call" href="tel:8186360118" target="_blank" rel="noopener" role="button">
+          <span style="font-size:1.25rem; margin-right:8px;">📞</span>
           Call
           <svg class="card-dots" width="4" height="20" viewBox="0 0 4 20" fill="#999">
             <circle cx="2" cy="4" r="2" />
@@ -129,6 +133,7 @@
           </svg>
         </a>
         <a class="button button-text" href="sms:8186360118" target="_blank" rel="noopener" role="button">
+          <span style="font-size:1.25rem; margin-right:8px;">💬</span>
           Text
           <svg class="card-dots" width="4" height="20" viewBox="0 0 4 20" fill="#999">
             <circle cx="2" cy="4" r="2" />
@@ -141,7 +146,7 @@
 
       <!-- Schedule a Showing -->
       <a class="button button-schedule-a-showing" href="#" target="_blank" rel="noopener" role="button">
-        <img class="icon" aria-hidden="true" src="images/icons/Calendar_Icon.png" alt="Schedule a Showing icon">
+        <span style="font-size:1.25rem; margin-right:8px;">🗓️</span>
         Schedule a Showing
         <svg class="card-dots" width="4" height="20" viewBox="0 0 4 20" fill="#999">
           <circle cx="2" cy="4" r="2" />
@@ -184,6 +189,50 @@
     </div>
   </div>
 
+  <!-- Chatbot Floating UI -->
+  <div id="chatbot-container" class="chatbot-container">
+    <div id="chatbot-window" class="chatbot-window hidden">
+      <div class="chatbot-header">
+        <div class="chatbot-header-info">
+          <div class="chatbot-avatar">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="#ffffff" viewBox="0 0 24 24">
+              <path
+                d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+            </svg>
+          </div>
+          <div>
+            <h3>Alma AI</h3>
+            <p>Typically replies instantly</p>
+          </div>
+        </div>
+        <button id="chatbot-close" class="chatbot-close-btn">×</button>
+      </div>
+      <div id="chatbot-messages" class="chatbot-messages">
+        <div class="message bot-message">
+          <p>Hi! I'm Alma's AI assistant. Do you have any questions about real estate or our current listings?</p>
+        </div>
+      </div>
+      <form id="chatbot-form" class="chatbot-input-area">
+        <input type="text" id="chatbot-input" placeholder="Type a message..." required>
+        <button type="submit" class="chatbot-send-btn">
+          <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+        </button>
+      </form>
+    </div>
+
+    <button id="chatbot-toggle" class="chatbot-toggle-btn">
+      <svg class="chat-icon" viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2"
+        fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+      </svg>
+    </button>
+  </div>
+
+  <script src="js/chatbot.js"></script>
 </body>
 
 </html>
