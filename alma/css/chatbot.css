@@ -156,6 +156,8 @@
     font-size: 14px;
     line-height: 1.4;
     animation: fadeIn 0.3s ease;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .message p {
