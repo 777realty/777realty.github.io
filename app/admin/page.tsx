@@ -34,15 +34,6 @@ export default function AdminPage() {
         fetchCurrent();
     }, []);
 
-    // 2. MAGIC AUTO-FILL: When address changes, generate a map URL automatically
-    useEffect(() => {
-        if (address && !embedUrl.includes('!1m18')) {
-            // Only auto-fill if the URL isn't already a complex snippet
-            const generated = `https://maps.google.com/maps?q=${encodeURIComponent(address)}&output=embed`;
-            setEmbedUrl(generated);
-        }
-    }, [address]);
-
     // 3. Handle the "Save" function
     const handleSave = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -100,7 +91,12 @@ export default function AdminPage() {
                     <input
                         type="text"
                         value={address}
-                        onChange={(e) => setAddress(e.target.value)}
+                        onChange={(e) => {
+                            const val = e.target.value;
+                            setAddress(val);
+                            // MAGIC AUTO-FILL: Generate map URL when typing address
+                            setEmbedUrl(`https://maps.google.com/maps?q=${encodeURIComponent(val)}&output=embed`);
+                        }}
                         placeholder="e.g. 123 Malibu Dr..."
                         required
                         style={inputStyle}
