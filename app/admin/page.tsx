@@ -30,7 +30,16 @@ export default function AdminPage() {
         fetchCurrent();
     }, []);
 
-    // 2. Handle the "Save" function
+    // 2. MAGIC AUTO-FILL: When address changes, generate a map URL automatically
+    useEffect(() => {
+        if (address && !embedUrl.includes('!1m18')) {
+            // Only auto-fill if the URL isn't already a complex snippet
+            const generated = `https://maps.google.com/maps?q=${encodeURIComponent(address)}&output=embed`;
+            setEmbedUrl(generated);
+        }
+    }, [address]);
+
+    // 3. Handle the "Save" function
     const handleSave = async (e: React.FormEvent) => {
         e.preventDefault();
         setSaving(true);
@@ -40,7 +49,7 @@ export default function AdminPage() {
             const res = await fetch('/api/property', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ address, link, embedUrl, password })
+                body: JSON.stringify({ address, embedUrl, password })
             });
 
             const result = await res.json();
@@ -96,16 +105,28 @@ export default function AdminPage() {
                 </div>
 
                 <div>
-                    <label style={{ display: 'block', marginBottom: '8px', fontWeight: 'bold' }}>Google Maps Embed URL</label>
+                    <label style={{ display: 'block', marginBottom: '8px', fontWeight: 'bold' }}>Google Maps URL or Embed Src</label>
                     <input
                         type="text"
                         value={embedUrl}
-                        onChange={(e) => setEmbedUrl(e.target.value)}
-                        placeholder="https://www.google.com/maps/embed?..."
+                        onChange={(e) => {
+                            const val = e.target.value;
+                            setEmbedUrl(val);
+
+                            // MAGIC REVERSE: Extract address from standard Google Maps URLs
+                            if (val.includes('google.com/maps/place/')) {
+                                try {
+                                    const parts = val.split('/maps/place/')[1].split('/');
+                                    const rawAddress = parts[0].replace(/\+/g, ' ');
+                                    setAddress(decodeURIComponent(rawAddress));
+                                } catch (e) { }
+                            }
+                        }}
+                        placeholder="Paste a Google Maps link or iframe src..."
                         required
                         style={inputStyle}
                     />
-                    <small style={{ color: '#888' }}>Copy the "src" value from the Google Maps Share/Embed iframe.</small>
+                    <small style={{ color: '#888' }}>You can paste a standard map link here to auto-fill the address above!</small>
                 </div>
 
                 <div style={{ padding: '20px', backgroundColor: '#f4f4f4', borderRadius: '12px', border: '1px solid #ddd' }}>
