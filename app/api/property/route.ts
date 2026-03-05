@@ -34,8 +34,8 @@ export async function POST(req: Request) {
         const { address, link, embedUrl, password } = body;
 
         // VERY SIMPLE PASSWORD PROTECTION
-        // You can change "Alma777!" to whatever you like.
-        if (password !== "Alma777!") {
+        // You can change "changeme" to whatever you like.
+        if (password !== "changeme") {
             return NextResponse.json({ error: 'Incorrect password' }, { status: 401 });
         }
 
