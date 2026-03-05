@@ -4,10 +4,13 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 
 export default function AdminPage() {
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [loginPassword, setLoginPassword] = useState('');
+    const [loginError, setLoginError] = useState('');
+    const [verifying, setVerifying] = useState(false);
+
     const [address, setAddress] = useState('');
-    const [link, setLink] = useState('');
     const [embedUrl, setEmbedUrl] = useState('');
-    const [password, setPassword] = useState('');
     const [status, setStatus] = useState({ message: '', type: '' });
     const [loading, setLoading] = useState(true);
     const [saving, setSaving] = useState(false);
@@ -34,6 +37,31 @@ export default function AdminPage() {
         fetchCurrent();
     }, []);
 
+    // 2. Handle Login
+    const handleLogin = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setVerifying(true);
+        setLoginError('');
+
+        try {
+            const res = await fetch('/api/auth', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ password: loginPassword })
+            });
+
+            if (res.ok) {
+                setIsAuthenticated(true);
+            } else {
+                setLoginError('Incorrect password. Please try again.');
+            }
+        } catch (err) {
+            setLoginError('Connection error.');
+        } finally {
+            setVerifying(false);
+        }
+    };
+
     // 3. Handle the "Save" function
     const handleSave = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -44,16 +72,18 @@ export default function AdminPage() {
             const res = await fetch('/api/property', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ address, embedUrl, password })
+                body: JSON.stringify({ address, embedUrl, password: loginPassword })
             });
 
             const result = await res.json();
 
             if (res.ok) {
                 setStatus({ message: 'Success! The property has been updated live.', type: 'success' });
-                setPassword(''); // Clear password for security
             } else {
                 setStatus({ message: result.error || 'Failed to save. Check your password!', type: 'error' });
+                if (res.status === 401) {
+                    setIsAuthenticated(false); // kick them out if password changed or expired
+                }
             }
         } catch (err) {
             setStatus({ message: 'Connection error. Please try again.', type: 'error' });
@@ -67,6 +97,68 @@ export default function AdminPage() {
             <h2>Connecting to Database...</h2>
         </div>
     );
+
+    if (!isAuthenticated) {
+        return (
+            <div style={{
+                maxWidth: '400px',
+                margin: '100px auto',
+                padding: '40px 30px',
+                fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+                backgroundColor: '#ffffff',
+                borderRadius: '16px',
+                boxShadow: '0 8px 32px rgba(0,0,0,0.1)',
+                border: '1px solid #eee',
+                textAlign: 'center'
+            }}>
+                <h1 style={{ marginBottom: '10px', fontSize: '28px', fontWeight: '800' }}>Admin Login</h1>
+                <p style={{ color: '#666', marginBottom: '30px', fontSize: '14px' }}>
+                    Please enter the administrator password.
+                </p>
+
+                <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+                    <div>
+                        <input
+                            type="password"
+                            value={loginPassword}
+                            onChange={(e) => setLoginPassword(e.target.value)}
+                            required
+                            placeholder="Password..."
+                            style={inputStyle}
+                        />
+                    </div>
+
+                    {loginError && (
+                        <div style={{ color: '#c53030', fontSize: '14px' }}>
+                            {loginError}
+                        </div>
+                    )}
+
+                    <button
+                        type="submit"
+                        disabled={verifying}
+                        style={{
+                            backgroundColor: '#000000',
+                            color: '#ffffff',
+                            padding: '16px',
+                            borderRadius: '10px',
+                            border: 'none',
+                            fontWeight: 'bold',
+                            cursor: 'pointer',
+                            fontSize: '16px',
+                            transition: 'opacity 0.2s',
+                            opacity: verifying ? 0.6 : 1
+                        }}
+                    >
+                        {verifying ? 'Verifying...' : 'Login'}
+                    </button>
+                </form>
+                <p style={{ marginTop: '30px' }}>
+                    <a href="/alma/littlelink.html" style={{ color: '#666', textDecoration: 'none', fontSize: '14px' }}>← Back to site</a>
+                </p>
+            </div>
+        );
+    }
 
     return (
         <div style={{
@@ -127,18 +219,6 @@ export default function AdminPage() {
                         style={inputStyle}
                     />
                     <small style={{ color: '#888' }}>You can paste a standard map link here to auto-fill the address above!</small>
-                </div>
-
-                <div style={{ padding: '20px', backgroundColor: '#f4f4f4', borderRadius: '12px', border: '1px solid #ddd' }}>
-                    <label style={{ display: 'block', marginBottom: '8px', fontWeight: 'bold' }}>Admin Password</label>
-                    <input
-                        type="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        required
-                        placeholder="Enter Admin Password..."
-                        style={inputStyle}
-                    />
                 </div>
 
                 {status.message && (
