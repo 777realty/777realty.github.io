@@ -55,7 +55,6 @@
     "react-resizable-panels": "^2.1.7",
     "react-slick": "^0.31.0",
     "recharts": "2.15.0",
-    "redis": "^5.11.0",
     "slick-carousel": "^1.8.1",
     "sonner": "^1.7.1",
     "tailwind-merge": "^2.5.5",

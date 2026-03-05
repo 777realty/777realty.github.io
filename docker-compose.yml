@@ -4,19 +4,8 @@ services:
   web:
     build: .
     ports:
-      - "3000:3000"
-    environment:
-      - REDIS_URL=redis://redis:6379
-      - NODE_ENV=production
-    depends_on:
-      - redis
-
-  redis:
-    image: redis:alpine
-    ports:
-      - "6379:6379"
+      - "3005:3000"
     volumes:
-      - redis_data:/data
-
-volumes:
-  redis_data:
+      - ./data:/app/data
+    environment:
+      - NODE_ENV=production

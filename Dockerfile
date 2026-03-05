@@ -2,8 +2,8 @@ FROM node:18-alpine
 
 WORKDIR /app
 
-# Copy package.json and lock file
-COPY package*.json ./
+# Copy package.json, lock file, and .npmrc (if exists)
+COPY package*.json .npmrc* ./
 
 # Install dependencies
 RUN npm install
