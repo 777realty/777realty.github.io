@@ -83,6 +83,19 @@ export default function AdminPage() {
             <form onSubmit={handleSave} style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
 
                 <div>
+                    <label style={{ display: 'block', marginBottom: '8px', fontWeight: 'bold' }}>Property Address</label>
+                    <input
+                        type="text"
+                        value={address}
+                        onChange={(e) => setAddress(e.target.value)}
+                        placeholder="e.g. 123 Malibu Dr..."
+                        required
+                        style={inputStyle}
+                    />
+                    <small style={{ color: '#888' }}>The text address that appears on the card.</small>
+                </div>
+
+                <div>
                     <label style={{ display: 'block', marginBottom: '8px', fontWeight: 'bold' }}>Google Maps Embed URL</label>
                     <input
                         type="text"

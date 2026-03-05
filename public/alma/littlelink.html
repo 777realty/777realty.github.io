@@ -107,9 +107,9 @@
 
         <!-- Property details -->
         <div class="property-details">
-          <p class="property-location">Featured Proptery</p>
-          <p class="property-address"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="2" class="pin-icon" style="margin-right:4px;">
+          <p class="property-location">Featured Property</p>
+          <p class="property-address" id="featured-address-text"><svg width="10" height="10" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2" class="pin-icon" style="margin-right:4px;">
               <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
               <circle cx="12" cy="10" r="3"></circle>
             </svg> 12219 Frank Modugno Dr, San Fernando</p>
@@ -242,6 +242,19 @@
         if (!response.ok) return;
 
         const data = await response.json();
+
+        // Update Address Text (keeping the SVG icon)
+        const addressEl = document.getElementById('featured-address-text');
+        if (addressEl && data.address) {
+          const svgHtml = addressEl.querySelector('svg').outerHTML;
+          addressEl.innerHTML = svgHtml + ' ' + data.address;
+        }
+
+        // Update Directions Link
+        const directionsLink = document.getElementById('featured-directions-link');
+        if (directionsLink && data.address) {
+          directionsLink.href = `https://maps.google.com/?q=${encodeURIComponent(data.address)}`;
+        }
 
         // Update Map Embed URL
         const mapFrame = document.getElementById('featured-map-frame');

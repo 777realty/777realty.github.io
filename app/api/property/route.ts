@@ -39,11 +39,15 @@ export async function POST(req: Request) {
             return NextResponse.json({ error: 'Incorrect password' }, { status: 401 });
         }
 
-        if (!address || !link || !embedUrl) {
+        if (!address || !embedUrl) {
             return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
         }
 
-        const updatedData = { address, link, embedUrl };
+        const updatedData = {
+            address,
+            embedUrl,
+            link: link || DEFAULT_PROPERTY.link // Keep existing or use default
+        };
         await kv.set(PROPERTY_KEY, updatedData);
 
         return NextResponse.json({ success: true, data: updatedData });
