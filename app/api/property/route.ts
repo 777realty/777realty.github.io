@@ -16,11 +16,33 @@ const DEFAULT_PROPERTY = {
  */
 export async function GET() {
     try {
+        // Debug: Check if env vars exist
+        const hasUrl = !!process.env.KV_REST_API_URL;
+        const hasToken = !!process.env.KV_REST_API_TOKEN;
+
+        if (!hasUrl || !hasToken) {
+            // Find what keys ARE available to help the user
+            const availableKeys = Object.keys(process.env).filter(k => k.includes('REST_API'));
+            console.error('Missing KV Vars. Available:', availableKeys);
+
+            // If they used a custom prefix like "STORAGE", we can try to find it
+            const prefix = availableKeys[0]?.split('_REST_API')[0];
+            if (prefix && prefix !== 'KV') {
+                return NextResponse.json({
+                    error: `Environment Variable Mismatch. Your database is using prefix "${prefix}_" but the code expects "KV_". Please go to Vercel Storage -> Connect -> and make sure "Custom Prefix" is EMPTY.`,
+                    debug: availableKeys
+                }, { status: 500 });
+            }
+        }
+
         const data = await kv.get(PROPERTY_KEY);
         return NextResponse.json(data || DEFAULT_PROPERTY);
-    } catch (error) {
+    } catch (error: any) {
         console.error('KV Error:', error);
-        return NextResponse.json(DEFAULT_PROPERTY); // Fallback to hardcoded defaults
+        return NextResponse.json({
+            error: error.message,
+            missing_vars: !process.env.KV_REST_API_URL
+        }, { status: 500 });
     }
 }
 

@@ -18,9 +18,13 @@ export default function AdminPage() {
             try {
                 const res = await fetch('/api/property');
                 const data = await res.json();
-                setAddress(data.address || '');
-                setLink(data.link || '');
-                setEmbedUrl(data.embedUrl || '');
+
+                if (res.ok) {
+                    setAddress(data.address || '');
+                    setEmbedUrl(data.embedUrl || '');
+                } else if (data.error) {
+                    setStatus({ message: data.error, type: 'error' });
+                }
             } catch (err) {
                 console.error("Fetch failed", err);
             } finally {
