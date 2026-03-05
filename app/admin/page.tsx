@@ -75,38 +75,12 @@ export default function AdminPage() {
             boxShadow: '0 8px 32px rgba(0,0,0,0.1)',
             border: '1px solid #eee'
         }}>
-            <h1 style={{ marginBottom: '10px', fontSize: '28px', fontWeight: '800' }}>Admin Dashboard</h1>
-            <p style={{ color: '#666', marginBottom: '30px', fontSize: '14px' }}>
-                Use this page to change the "Featured Property" listing currently shown on your LittleLink page.
+            <h1 style={{ marginBottom: '10px', fontSize: '28px', fontWeight: '800', textAlign: 'center' }}>Map Editor</h1>
+            <p style={{ color: '#666', marginBottom: '30px', fontSize: '14px', textAlign: 'center' }}>
+                Paste a new Google Maps Embed URL to update your featured property map.
             </p>
 
-            <form onSubmit={handleSave} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-
-                <div>
-                    <label style={{ display: 'block', marginBottom: '8px', fontWeight: 'bold' }}>Property Address</label>
-                    <input
-                        type="text"
-                        value={address}
-                        onChange={(e) => setAddress(e.target.value)}
-                        placeholder="e.g. 123 Malibu Dr..."
-                        required
-                        style={inputStyle}
-                    />
-                    <small style={{ color: '#888' }}>This text appears on the card header.</small>
-                </div>
-
-                <div>
-                    <label style={{ display: 'block', marginBottom: '8px', fontWeight: 'bold' }}>Full Property Link</label>
-                    <input
-                        type="url"
-                        value={link}
-                        onChange={(e) => setLink(e.target.value)}
-                        placeholder="https://..."
-                        required
-                        style={inputStyle}
-                    />
-                    <small style={{ color: '#888' }}>The web address visitors go to when they click.</small>
-                </div>
+            <form onSubmit={handleSave} style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
 
                 <div>
                     <label style={{ display: 'block', marginBottom: '8px', fontWeight: 'bold' }}>Google Maps Embed URL</label>
@@ -118,10 +92,10 @@ export default function AdminPage() {
                         required
                         style={inputStyle}
                     />
-                    <small style={{ color: '#888' }}>Copy the "src" value from a Google Maps Share/Embed iframe.</small>
+                    <small style={{ color: '#888' }}>Copy the "src" value from the Google Maps Share/Embed iframe.</small>
                 </div>
 
-                <div style={{ padding: '20px', backgroundColor: '#f9f9f9', borderRadius: '12px', border: '1px solid #eee' }}>
+                <div style={{ padding: '20px', backgroundColor: '#f4f4f4', borderRadius: '12px', border: '1px solid #ddd' }}>
                     <label style={{ display: 'block', marginBottom: '8px', fontWeight: 'bold' }}>Admin Password</label>
                     <input
                         type="password"
@@ -138,6 +112,7 @@ export default function AdminPage() {
                         padding: '12px',
                         borderRadius: '8px',
                         fontSize: '14px',
+                        textAlign: 'center',
                         backgroundColor: status.type === 'success' ? '#e6fffa' : '#fff5f5',
                         color: status.type === 'success' ? '#2c7a7b' : '#c53030',
                         border: `1px solid ${status.type === 'success' ? '#81e6d9' : '#feb2b2'}`
@@ -152,22 +127,22 @@ export default function AdminPage() {
                     style={{
                         backgroundColor: '#000000',
                         color: '#ffffff',
-                        padding: '16px',
-                        borderRadius: '50px',
+                        padding: '18px',
+                        borderRadius: '10px',
                         border: 'none',
                         fontWeight: 'bold',
                         cursor: 'pointer',
                         fontSize: '16px',
-                        transition: 'transform 0.2s',
+                        transition: 'opacity 0.2s',
                         opacity: saving ? 0.6 : 1
                     }}
                 >
-                    {saving ? 'Saving...' : '🚀 Update Live Listing'}
+                    {saving ? 'Saving...' : '🚀 Update Live Map'}
                 </button>
             </form>
 
             <p style={{ marginTop: '40px', textAlign: 'center' }}>
-                <a href="/alma/littlelink.html" style={{ color: '#3182ce', textDecoration: 'none', fontSize: '14px' }}>← View LittleLink Site</a>
+                <a href="/alma/littlelink.html" style={{ color: '#666', textDecoration: 'none', fontSize: '14px' }}>← Back to site</a>
             </p>
         </div>
     );
